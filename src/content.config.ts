@@ -10,6 +10,9 @@ const blog = defineCollection({
     updatedDate: z.date().optional(),
     tags: z.array(z.string()).default([]),
     author: z.string().default('Merel Aerts'),
+    seoTitle: z.string().optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
   }),
 });
 

@@ -12,10 +12,10 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, description, pubDate, updatedDate, author } = entry.data;
+const { title, description, pubDate, updatedDate, author, seoTitle, image, imageAlt } = entry.data;
 const dateFormatter = new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={seoTitle ?? title} description={description} image={image}>
   <article>
     <section class="section-tight">
       <div class="container prose">
@@ -36,6 +36,11 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 
 
     <section class="section prose">
       <div class="container prose">
+        {image && (
+          <figure style="margin:0 0 1.5rem">
+            <img src={image} alt={imageAlt ?? ''} width="1200" height="800" loading="eager" style="width:100%;height:auto;border-radius:inherit" />
+          </figure>
+        )}
         <Content />
       </div>
     </section>

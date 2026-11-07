@@ -30,6 +30,9 @@ const aanbieders = (await getCollection('aanbieders')).sort((a, b) => a.data.ord
             {entry.id === 'uitmetkorting' && (
               <p><a href="https://www.uitmetkorting.nl/avonturenboerderij-molenwaard/" target="_blank" rel="noopener">Voordelig naar Avonturenboerderij Molenwaard</a></p>
             )}
+            {entry.id === 'djoser' && (
+              <p><a href="https://www.djoser.nl/rondreis-portugal/" target="_blank">klik en lees over Portugal reis</a></p>
+            )}
             <a class="card-link" href={`/aanbieders/${entry.id}`}>Bekijk profiel &rarr;</a>
           </div>
         ))}
